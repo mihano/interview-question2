@@ -4,6 +4,7 @@ import com.example.demo.domain.exception.NumbersNotFoundException;
 import lombok.NonNull;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -17,6 +18,7 @@ import java.util.concurrent.atomic.AtomicLong;
  */
 @Repository
 @Slf4j
+@Profile("in-memory")
 public class InMemoryNumbersRepository implements NumbersRepository {
 
     private static final ConcurrentMap<Long, List<Long>> STORAGE = new ConcurrentHashMap<>();
